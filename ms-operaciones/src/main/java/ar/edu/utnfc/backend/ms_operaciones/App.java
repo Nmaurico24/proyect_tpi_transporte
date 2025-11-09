@@ -1,4 +1,4 @@
-package ar.edu.utnfc.backend.ms-operaciones;
+package ar.edu.utnfc.backend.ms_operaciones;
 
 /**
  * Hello world!
