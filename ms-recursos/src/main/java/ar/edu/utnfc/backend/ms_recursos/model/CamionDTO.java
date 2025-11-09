@@ -13,7 +13,7 @@ import java.util.UUID;
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class CamionDTO {
     private UUID id;
-    private String adminio;
+    private String dominio;
     private String nombre;
     private String telefono;
     private BigDecimal capPesoKg;

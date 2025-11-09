@@ -15,7 +15,7 @@ public class DisponibilidadCamionDTO {
     private UUID camionId;
     private LocalDateTime desde;
     private LocalDateTime hasta;
-    private EstadoDisponibilidad estado; // Asumo que es un enum
+    private EstadoDisponibilidad estado; // Asumo que es un enum, 0 por defecto
     private String motivo;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

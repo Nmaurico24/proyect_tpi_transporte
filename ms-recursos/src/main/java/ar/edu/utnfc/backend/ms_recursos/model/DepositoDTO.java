@@ -16,8 +16,8 @@ public class DepositoDTO {
     private String nombre;
     private String direccion;
     private BigDecimal lat;
-    private BigDecimal ng;
-    private BigDecimal costoDiano;
+    private BigDecimal lng;
+    private BigDecimal costoDiario;
     private Boolean lsActive;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
