@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 
-public class DisponibilidadCamion {
+public class DisponibilidadCamionDTO {
     private UUID id;
     private UUID camionId;
     private LocalDateTime desde;
     private LocalDateTime hasta;
-    //private EstadoDisponibilidad estado; // Asumo que es un enum
+    private EstadoDisponibilidad estado; // Asumo que es un enum
     private String motivo;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

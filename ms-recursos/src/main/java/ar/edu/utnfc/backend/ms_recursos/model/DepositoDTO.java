@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 
-public class Deposito {
+public class DepositoDTO {
     private UUID id;
     private String nombre;
     private String direccion;

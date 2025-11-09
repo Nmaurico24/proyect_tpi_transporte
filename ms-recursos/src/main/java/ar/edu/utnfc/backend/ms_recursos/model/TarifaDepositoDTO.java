@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 
-public class TarifaCamion {
+public class TarifaDepositoDTO {
     private UUID id;
     private UUID tarifaId;
-    private UUID camionId;
+    private UUID depositoId;
 }

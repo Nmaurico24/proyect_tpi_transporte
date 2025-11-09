@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 
-public class CostoEstimacion {
+public class CostoEstimacionDTO {
     private UUID id;
     private String solicitudRef;
     private String rutaPayLoad; // JSON como String
     private BigDecimal totalEstimado;
-    //private Moneda moneda;
+    private Moneda moneda;
     private String desgloseJson; // JSON como String
     private LocalDateTime createEn;
 }

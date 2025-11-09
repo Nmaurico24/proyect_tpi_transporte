@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 
-public class CostoFinal {
+public class CostoFinalDTO {
     private UUID id;
     private String rutaRef;
     private BigDecimal litros;
     private Integer etxiolesDias;
     private BigDecimal totalFinal;
-    //private Moneda moneda;
+    private Moneda moneda;
     private String desgloseJson; // JSON como String
     private LocalDateTime createEn;
 }

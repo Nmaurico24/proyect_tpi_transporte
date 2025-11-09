@@ -11,7 +11,7 @@ import java.util.UUID;
 
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
-public class Camion {
+public class CamionDTO {
     private UUID id;
     private String adminio;
     private String nombre;
