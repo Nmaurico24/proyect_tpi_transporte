@@ -6,7 +6,7 @@ import java.util.UUID;
 import lombok.*;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
-public class Asignacion {
+public class AsignacionDTO {
     private UUID id;
     private UUID tramo_id;
     private String camion_ref;

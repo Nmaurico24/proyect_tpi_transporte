@@ -7,7 +7,7 @@ import java.util.UUID;
 import lombok.*;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
-public class Tramo {
+public class TramoDTO {
     private UUID id;
     private UUID rutaId;
     private Integer orden;

@@ -6,7 +6,7 @@ import java.util.UUID;
 import lombok.*;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
-public class TimeLineSolicitud {
+public class TimeLineSolicitudDTO {
     private UUID id;
     private String solicitudRef;
     private UUID rutaId;

@@ -9,7 +9,7 @@ import lombok.*;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 
-public class Ruta {
+public class RutaDTO {
     private UUID id;
     private String solicitudRef;
     private EstadoRuta estado; // Enum

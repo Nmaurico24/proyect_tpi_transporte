@@ -7,7 +7,7 @@ import java.util.UUID;
 import lombok.*;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
-public class TrackingEvento {
+public class TrackingEventoDTO {
     private UUID id;
     private UUID tramoId;
     private String tipo;
