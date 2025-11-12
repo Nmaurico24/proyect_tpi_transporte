@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
 
-public class DisponibilidadCamionDTO {
+public class DisponibilidadCamion {
     private UUID id;
     private UUID camionId;
     private LocalDateTime desde;
