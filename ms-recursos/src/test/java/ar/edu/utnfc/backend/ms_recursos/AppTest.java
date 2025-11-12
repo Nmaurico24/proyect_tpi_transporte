@@ -1,4 +1,4 @@
-package ar.edu.utnfc.backend.ms-recursos;
+package ar.edu.utnfc.backend.ms_recursos;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
