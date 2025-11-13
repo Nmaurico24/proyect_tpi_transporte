@@ -1,4 +1,4 @@
-package ar.edu.utnfc.backend.ms-logistica;
+package ar.edu.utnfc.backend.ms_logistica;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
