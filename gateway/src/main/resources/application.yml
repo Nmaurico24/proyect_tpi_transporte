@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        # Recursos
+        - id: ms-recursos
+          uri: http://localhost:8081
+          predicates:
+            - Path=/recursos/**, /camiones/**, /depositos/**, /tarifas/**, /costos/**
+
+        # Logística
+        - id: ms-logistica
+          uri: http://localhost:8082
+          predicates:
+            - Path=/solicitudes/**, /contenedores/**
+
+        # Operaciones
+        - id: ms-operaciones
+          uri: http://localhost:8083
+          predicates:
+            - Path=/rutas/**, /tramos/**, /tracking/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ms-logistica
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/ms_logistica_db}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER:admin}
+    password: ${DB_PASS:admin}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8082
+
+logging:
+  level:
+    org.hibernate.SQL: debug

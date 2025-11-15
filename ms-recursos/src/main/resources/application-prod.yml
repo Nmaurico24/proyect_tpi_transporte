@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ms-recursos
+  datasource:
+    url: jdbc:postgresql://postgres-recursos:5432/recursosdb
+    driver-class-name: org.postgresql.Driver
+    username: recursos
+    password: recursos
+  jpa:
+    hibernate:
+      ddl-auto: validate   # en prod, validar esquema
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.lob.non_contextual_creation: true
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

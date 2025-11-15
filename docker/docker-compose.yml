@@ -1,0 +1,103 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: ms_recursos_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+    networks:
+      - tpi-network
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.2
+    container_name: keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: milaconpure
+    command: ["start-dev", "--import-realm"]
+    volumes:
+      - ../keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - tpi-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@utn.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - tpi-network
+
+  ms-recursos:
+    build:
+      context: ../ms-recursos
+    container_name: ms-recursos
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ms_recursos_db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SERVER_PORT: 8081
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+    networks:
+      - tpi-network
+
+  ms-logistica:
+    build:
+      context: ../ms-logistica
+    container_name: ms-logistica
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ms_logistica_db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SERVER_PORT: 8082
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+      - keycloak
+    networks:
+      - tpi-network
+
+  ms-operaciones:
+    build:
+      context: ../ms-operaciones
+      dockerfile: Dockerfile
+    container_name: ms-operaciones
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/ms_recursos_db
+      DB_USER: admin
+      DB_PASS: admin
+      PORT: 8082
+      GOOGLE_MAPS_API_KEY: tu_api_key_real
+    ports:
+      - "8083:8082"
+    depends_on:
+      - postgres
+      - keycloak
+    networks:
+      - tpi-network
+
+networks:
+  tpi-network:
+
+volumes:
+  postgres_data:
