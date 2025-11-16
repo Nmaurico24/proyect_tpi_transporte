@@ -1,0 +1,66 @@
+{
+  "realm": "tpi",
+  "enabled": true,
+  "registrationAllowed": false,
+  "resetPasswordAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "clients": [
+    {
+      "clientId": "frontend",
+      "name": "React/Angular client",
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "*"
+      ],
+      "webOrigins": [
+        "*"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true
+    },
+    {
+      "clientId": "gateway",
+      "name": "API Gateway",
+      "secret": "gateway-secret",
+      "serviceAccountsEnabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "admin@utn.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "milaconpure",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "default-roles-tpi"
+      ]
+    }
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Administrators",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "tpi"
+      }
+    ]
+  }
+}

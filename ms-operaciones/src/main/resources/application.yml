@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: ms-operaciones
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/ms_recursos_db}
+    username: ${DB_USER:admin}
+    password: ${DB_PASS:admin}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI:http://keycloak:8080/realms/tpi/protocol/openid-connect/certs}
+
+server:
+  port: ${PORT:8082}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    
+google:
+  distance:
+    base-url: https://maps.googleapis.com
+    api-key: ${GOOGLE_MAPS_API_KEY:dummy}
